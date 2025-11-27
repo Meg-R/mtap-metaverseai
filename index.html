@@ -5,109 +5,332 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Call for Papers – AI × Metaverse (MTAP Special Issue)</title>
   <style>
+    :root {
+      --bg1: #020617;
+      --bg2: #0f172a;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56,189,248,0.3);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
       margin: 0;
-      padding: 0;
-      color: #333;
-      background: #f8f9fa;
-    }
-    header {
-      background: #111827;
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-    }
-    h1, h2 {
-      color: #111827;
-    }
-    .container {
-      max-width: 900px;
-      margin: 30px auto;
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    ul {
-      margin-left: 20px;
-    }
-    .editors {
-      background: #eef2ff;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text-main);
+      background: radial-gradient(circle at top, #1e293b 0, var(--bg1) 45%, #020617 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       padding: 20px;
-      border-radius: 10px;
-      margin-top: 20px;
+      overflow-x: hidden;
     }
-    footer {
+
+    /* Floating blobs background */
+    .blob {
+      position: fixed;
+      width: 320px;
+      height: 320px;
+      border-radius: 999px;
+      filter: blur(60px);
+      opacity: 0.45;
+      z-index: -2;
+      animation: float 18s ease-in-out infinite alternate;
+    }
+    .blob-1 { top: -60px; left: -40px; background: #4f46e5; }
+    .blob-2 { bottom: -80px; right: -40px; background: #0ea5e9; animation-delay: 4s; }
+    .blob-3 { top: 40%; right: 10%; background: #22c55e; animation-delay: 8s; }
+
+    @keyframes float {
+      0% { transform: translate3d(0,0,0) scale(1); }
+      100% { transform: translate3d(40px,-40px,0) scale(1.15); }
+    }
+
+    .wrapper {
+      width: 100%;
+      max-width: 980px;
+      margin-top: 10px;
+      animation: fadeIn 1s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    header {
       text-align: center;
-      margin: 40px 0 20px;
+      margin-bottom: 18px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      background: rgba(15,23,42,0.7);
+      border: 1px solid rgba(148,163,184,0.3);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+    }
+
+    h1 {
+      font-size: clamp(2.1rem, 3vw, 2.6rem);
+      margin: 10px 0 4px;
+    }
+
+    h2.subtitle {
+      margin: 0;
+      font-weight: 500;
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+
+    .journal {
+      margin-top: 6px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .glass-card {
+      background: radial-gradient(circle at top left, rgba(56,189,248,0.08), transparent),
+                  linear-gradient(to bottom right, rgba(15,23,42,0.94), rgba(15,23,42,0.85));
+      border-radius: 24px;
+      padding: 26px 22px 26px;
+      border: 1px solid rgba(148,163,184,0.5);
+      box-shadow:
+        0 18px 45px rgba(15,23,42,0.85),
+        0 0 0 1px rgba(15,23,42,0.7);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .flex-top {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .col-main {
+      flex: 2;
+      min-width: 260px;
+    }
+
+    .col-side {
+      flex: 1.1;
+      min-width: 240px;
+    }
+
+    h2.section-title {
+      font-size: 1.15rem;
+      margin-top: 18px;
+      margin-bottom: 8px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    p {
+      margin: 0 0 10px;
+      font-size: 0.95rem;
+      color: #e5e7eb;
+    }
+
+    ul {
+      margin: 6px 0 8px 18px;
+      padding: 0;
+      font-size: 0.93rem;
+    }
+
+    li + li {
+      margin-top: 4px;
+    }
+
+    strong {
+      color: #e5e7eb;
+    }
+
+    .pill-list li {
+      list-style: none;
+      margin: 6px 0;
+      padding-left: 0;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.5);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .dates-card, .editors-card {
+      border-radius: 18px;
+      padding: 14px 14px 12px;
+      background: linear-gradient(135deg, rgba(15,23,42,0.9), rgba(30,64,175,0.8));
+      border: 1px solid rgba(129,140,248,0.7);
+      box-shadow: 0 14px 30px rgba(15,23,42,0.9);
+      margin-top: 8px;
+    }
+
+    .dates-card h3,
+    .editors-card h3 {
+      margin: 0 0 8px;
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #c7d2fe;
+    }
+
+    .dates-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
       font-size: 0.9rem;
-      color: #555;
+    }
+
+    .date-item span {
+      display: block;
+    }
+
+    .date-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+    }
+
+    .date-value {
+      font-weight: 600;
+      color: #f9fafb;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      background: radial-gradient(circle at top left, rgba(56,189,248,0.3), rgba(15,23,42,0.95));
+      color: #e0f2fe;
+      font-size: 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      gap: 6px;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+      box-shadow: 0 10px 25px rgba(15,23,42,0.9);
+    }
+
+    .btn span.icon {
+      font-size: 1rem;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px) scale(1.02);
+      border-color: var(--accent);
+      box-shadow: 0 14px 32px rgba(15,23,42,0.95);
+      background: radial-gradient(circle at top left, rgba(56,189,248,0.45), rgba(15,23,42,0.96));
+    }
+
+    .btn.secondary {
+      background: rgba(15,23,42,0.9);
+      border-color: rgba(148,163,184,0.6);
+      color: var(--text-muted);
+      box-shadow: 0 10px 22px rgba(15,23,42,0.9);
+    }
+
+    .btn.secondary:hover {
+      border-color: rgba(209,213,219,0.9);
+      color: #e5e7eb;
+    }
+
+    .editors-list {
+      list-style: none;
+      padding: 0;
+      margin: 6px 0 0;
+      font-size: 0.9rem;
+    }
+
+    .editors-list li + li {
+      margin-top: 4px;
+    }
+
+    .footer-note {
+      margin-top: 16px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    @media (min-width: 640px) {
+      .dates-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .glass-card {
+        padding: 20px 16px 22px;
+      }
     }
   </style>
 </head>
-
 <body>
 
-<header>
-  <h1>Call for Papers</h1>
-  <h2>Special Issue on AI × Metaverse</h2>
-  <p><strong>Multimedia Tools and Applications (Springer)</strong></p>
-</header>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
 
-<div class="container">
+<div class="wrapper">
+  <header>
+    <div class="tag">Special Issue · Call for Papers</div>
+    <h1>AI × Metaverse</h1>
+    <h2 class="subtitle">Special Issue on AI & Immersive Multimedia</h2>
+    <p class="journal"><strong>Multimedia Tools and Applications (Springer)</strong></p>
+  </header>
 
-  <h2>Overview</h2>
-  <p>
-    The fusion of Artificial Intelligence (AI) and immersive multimedia is redefining how we experience digital environments.
-    This special issue seeks original contributions at the intersection of AI and the Metaverse, spanning generative systems,
-    multimodal perception, synthetic data, intelligent agents, and human-centered immersive design.
-  </p>
+  <main class="glass-card">
 
-  <h2>Topics of Interest</h2>
-  <ul>
-    <li><strong>Generative AI for Immersive Environments</strong>: Methods for creating realistic synthetic data, 3D worlds, and interactive digital content.</li>
-    <li><strong>Synthetic Data Generation</strong>: AI-driven approaches for robust model training when real data is scarce or sensitive.</li>
-    <li><strong>Advanced Digital Twins and Real-Time Simulation</strong>: High-fidelity digital replicas for learning, simulation, and adaptive environments.</li>
-    <li><strong>Intelligent Avatars and Virtual Agents</strong>: Design of AI-powered agents that interact naturally in the Metaverse.</li>
-    <li><strong>Cognitive Modeling and Personalization</strong>: User-adaptive systems and human-centered design through AI-based behavioral modeling.</li>
-    <li><strong>Multimodal Interaction and Sensory Augmentation</strong>: Fusion of visual, auditory, and haptic signals for richer immersion.</li>
-    <li><strong>Ethical, Privacy, and Bias Considerations</strong>: Responsible development of AI-driven immersive ecosystems.</li>
-    <li><strong>Domain-Specific Applications</strong>: Case studies in education, healthcare, engineering, manufacturing, training, and entertainment.</li>
-  </ul>
+    <div class="flex-top">
+      <section class="col-main">
+        <h2 class="section-title">Overview</h2>
+        <p>
+          The fusion of Artificial Intelligence (AI) and immersive multimedia is redefining how we experience digital environments.
+          This special issue seeks original contributions at the intersection of AI and the Metaverse, spanning generative systems,
+          multimodal perception, synthetic data, intelligent agents, and human-centered immersive design.
+        </p>
 
-  <h2>Submission Guidelines</h2>
-  <p>
-    Manuscripts should follow the <em>Multimedia Tools and Applications</em> submission format and be submitted through the Springer Editorial Manager system under the track:
-    <strong>“Special Issue: AI X Metaverse”</strong>.
-  </p>
+        <h2 class="section-title">Topics of Interest</h2>
+        <ul>
+          <li><strong>Generative AI for Immersive Environments</strong>: Methods for creating realistic synthetic data, 3D worlds, and interactive digital content.</li>
+          <li><strong>Synthetic Data Generation</strong>: AI-driven approaches for robust model training when real data is scarce or sensitive.</li>
+          <li><strong>Advanced Digital Twins and Real-Time Simulation</strong>: High-fidelity digital replicas for learning, simulation, and adaptive environments.</li>
+          <li><strong>Intelligent Avatars and Virtual Agents</strong>: Design of AI-powered agents that interact naturally in the Metaverse.</li>
+          <li><strong>Cognitive Modeling and Personalization</strong>: User-adaptive systems and human-centered design through AI-based behavioral modeling.</li>
+          <li><strong>Multimodal Interaction and Sensory Augmentation</strong>: Fusion of visual, auditory, and haptic signals for richer immersion.</li>
+          <li><strong>Ethical, Privacy, and Bias Considerations</strong>: Responsible development of AI-driven immersive ecosystems.</li>
+          <li><strong>Domain-Specific Applications</strong>: Case studies in education, healthcare, engineering, manufacturing, training, and entertainment.</li>
+        </ul>
 
-  <h2>Important Dates</h2>
-  <ul>
-    <li><strong>Submission Deadline:</strong> 1 March 2026</li>
-    <li><strong>First Review Notification:</strong> April 2026</li>
-    <li><strong>Revision Submission:</strong> May 2026</li>
-    <li><strong>Final Decision:</strong> May–June 2026</li>
-  </ul>
-
-  <h2>Guest Editors</h2>
-  <div class="editors">
-    <ul>
-      <li><strong>[Chair]</strong> Dr. Aik Beng Ng — NVIDIA, Regional Manager, NVAITC</li>
-      <li>Megani Rajendran — NVIDIA, Solutions Architect</li>
-      <li>Assoc. Prof. Jeannie Lee Su Ann — Singapore Institute of Technology</li>
-      <li>Prof. Ian McLoughlin — Singapore Institute of Technology</li>
-      <li>Prof. Cai Yiyu — Nanyang Technological University</li>
-      <li>Dr. Simon See — NVIDIA AI Technology Centre, Global Head</li>
-    </ul>
-  </div>
-
-</div>
-
-<footer>
-  © 2025 AI × Metaverse Special Issue — MTAP (Springer)
-</footer>
-
-</body>
-</html>
+        <h2 class="section-title">Submission Guidelines</h2>
+        <p>
+          Manuscripts should follow the <em>Multimedia Tools and Applications</em> submission format and be submitted through the Springer Editorial Manage
