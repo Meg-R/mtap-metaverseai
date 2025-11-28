@@ -5,57 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Call for Papers – AI × Metaverse (MTAP Special Issue)</title>
   <style>
-    :root {
-      --bg1: #020617;
-      --bg2: #0f172a;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56,189,248,0.3);
-      --text-main: #e5e7eb;
-      --text-muted: #9ca3af;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
     body {
-      margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text-main);
-      background: radial-gradient(circle at top, #1e293b 0, var(--bg1) 45%, #020617 100%);
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      color: #e5e7eb;
+      background: radial-gradient(circle at top, #1e293b 0, #020617 45%, #020617 100%);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 20px;
+      padding: 24px 16px;
       overflow-x: hidden;
     }
 
-    /* Floating blobs background */
+    /* Glassmorphism + floating blobs */
     .blob {
       position: fixed;
       width: 320px;
       height: 320px;
       border-radius: 999px;
       filter: blur(60px);
-      opacity: 0.45;
+      opacity: 0.5;
       z-index: -2;
       animation: float 18s ease-in-out infinite alternate;
     }
     .blob-1 { top: -60px; left: -40px; background: #4f46e5; }
     .blob-2 { bottom: -80px; right: -40px; background: #0ea5e9; animation-delay: 4s; }
-    .blob-3 { top: 40%; right: 10%; background: #22c55e; animation-delay: 8s; }
+    .blob-3 { top: 40%; right: 8%; background: #22c55e; animation-delay: 8s; }
 
     @keyframes float {
       0% { transform: translate3d(0,0,0) scale(1); }
-      100% { transform: translate3d(40px,-40px,0) scale(1.15); }
+      100% { transform: translate3d(40px,-40px,0) scale(1.12); }
     }
 
     .wrapper {
       width: 100%;
       max-width: 980px;
-      margin-top: 10px;
-      animation: fadeIn 1s ease-out;
+      animation: fadeIn 0.9s ease-out;
     }
 
     @keyframes fadeIn {
@@ -79,7 +67,7 @@
       border: 1px solid rgba(148,163,184,0.3);
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: var(--text-muted);
+      color: #9ca3af;
     }
 
     h1 {
@@ -90,24 +78,24 @@
     h2.subtitle {
       margin: 0;
       font-weight: 500;
-      color: var(--accent);
+      color: #38bdf8;
       font-size: 1.1rem;
     }
 
     .journal {
       margin-top: 6px;
       font-size: 0.95rem;
-      color: var(--text-muted);
+      color: #9ca3af;
     }
 
     .glass-card {
-      background: radial-gradient(circle at top left, rgba(56,189,248,0.08), transparent),
-                  linear-gradient(to bottom right, rgba(15,23,42,0.94), rgba(15,23,42,0.85));
+      background: radial-gradient(circle at top left, rgba(56,189,248,0.09), transparent),
+                  linear-gradient(to bottom right, rgba(15,23,42,0.96), rgba(15,23,42,0.9));
       border-radius: 24px;
       padding: 26px 22px 26px;
       border: 1px solid rgba(148,163,184,0.5);
       box-shadow:
-        0 18px 45px rgba(15,23,42,0.85),
+        0 18px 45px rgba(15,23,42,0.88),
         0 0 0 1px rgba(15,23,42,0.7);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
@@ -120,23 +108,16 @@
       align-items: flex-start;
     }
 
-    .col-main {
-      flex: 2;
-      min-width: 260px;
-    }
-
-    .col-side {
-      flex: 1.1;
-      min-width: 240px;
-    }
+    .col-main { flex: 2; min-width: 260px; }
+    .col-side { flex: 1.1; min-width: 240px; }
 
     h2.section-title {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       margin-top: 18px;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      color: var(--text-muted);
+      color: #9ca3af;
     }
 
     p {
@@ -151,70 +132,8 @@
       font-size: 0.93rem;
     }
 
-    li + li {
-      margin-top: 4px;
-    }
-
-    strong {
-      color: #e5e7eb;
-    }
-
-    .pill-list li {
-      list-style: none;
-      margin: 6px 0;
-      padding-left: 0;
-    }
-
-    .pill {
-      display: inline-block;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(15,23,42,0.9);
-      border: 1px solid rgba(148,163,184,0.5);
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    .dates-card, .editors-card {
-      border-radius: 18px;
-      padding: 14px 14px 12px;
-      background: linear-gradient(135deg, rgba(15,23,42,0.9), rgba(30,64,175,0.8));
-      border: 1px solid rgba(129,140,248,0.7);
-      box-shadow: 0 14px 30px rgba(15,23,42,0.9);
-      margin-top: 8px;
-    }
-
-    .dates-card h3,
-    .editors-card h3 {
-      margin: 0 0 8px;
-      font-size: 0.95rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: #c7d2fe;
-    }
-
-    .dates-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 8px;
-      font-size: 0.9rem;
-    }
-
-    .date-item span {
-      display: block;
-    }
-
-    .date-label {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
-    }
-
-    .date-value {
-      font-weight: 600;
-      color: #f9fafb;
-    }
+    li + li { margin-top: 4px; }
+    strong { color: #f9fafb; }
 
     .button-row {
       display: flex;
@@ -229,8 +148,8 @@
       justify-content: center;
       padding: 8px 14px;
       border-radius: 999px;
-      border: 1px solid var(--accent-soft);
-      background: radial-gradient(circle at top left, rgba(56,189,248,0.3), rgba(15,23,42,0.95));
+      border: 1px solid rgba(56,189,248,0.3);
+      background: radial-gradient(circle at top left, rgba(56,189,248,0.3), rgba(15,23,42,0.96));
       color: #e0f2fe;
       font-size: 0.9rem;
       text-decoration: none;
@@ -240,45 +159,88 @@
       box-shadow: 0 10px 25px rgba(15,23,42,0.9);
     }
 
-    .btn span.icon {
-      font-size: 1rem;
-    }
+    .btn span.icon { font-size: 1rem; }
 
     .btn:hover {
       transform: translateY(-1px) scale(1.02);
-      border-color: var(--accent);
+      border-color: #38bdf8;
       box-shadow: 0 14px 32px rgba(15,23,42,0.95);
-      background: radial-gradient(circle at top left, rgba(56,189,248,0.45), rgba(15,23,42,0.96));
+      background: radial-gradient(circle at top left, rgba(56,189,248,0.45), rgba(15,23,42,0.98));
     }
 
     .btn.secondary {
-      background: rgba(15,23,42,0.9);
-      border-color: rgba(148,163,184,0.6);
-      color: var(--text-muted);
+      background: rgba(15,23,42,0.95);
+      border-color: rgba(148,163,184,0.7);
+      color: #d1d5db;
       box-shadow: 0 10px 22px rgba(15,23,42,0.9);
     }
 
     .btn.secondary:hover {
-      border-color: rgba(209,213,219,0.9);
-      color: #e5e7eb;
+      border-color: #e5e7eb;
+      color: #f9fafb;
     }
 
-    .editors-list {
-      list-style: none;
-      padding: 0;
-      margin: 6px 0 0;
+    .dates-card, .editors-card, .events-card, .contact-card {
+      border-radius: 18px;
+      padding: 14px 14px 12px;
+      background: linear-gradient(135deg, rgba(15,23,42,0.96), rgba(30,64,175,0.85));
+      border: 1px solid rgba(129,140,248,0.7);
+      box-shadow: 0 14px 30px rgba(15,23,42,0.95);
+      margin-top: 10px;
       font-size: 0.9rem;
     }
 
-    .editors-list li + li {
+    .card-title {
+      margin: 0 0 8px;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #c7d2fe;
+    }
+
+    .dates-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      font-size: 0.9rem;
+    }
+
+    .date-item span { display: block; }
+    .date-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #9ca3af;
+    }
+    .date-value { font-weight: 600; color: #f9fafb; }
+
+    .editors-list,
+    .events-list,
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 4px 0 0;
+    }
+
+    .editors-list li + li,
+    .events-list li + li,
+    .contact-list li + li {
       margin-top: 4px;
     }
 
+    a.mail {
+      color: #bfdbfe;
+      text-decoration: none;
+    }
+    a.mail:hover {
+      text-decoration: underline;
+    }
+
     .footer-note {
-      margin-top: 16px;
+      margin-top: 18px;
       text-align: center;
       font-size: 0.8rem;
-      color: var(--text-muted);
+      color: #9ca3af;
     }
 
     @media (min-width: 640px) {
@@ -288,9 +250,7 @@
     }
 
     @media (max-width: 720px) {
-      .glass-card {
-        padding: 20px 16px 22px;
-      }
+      .glass-card { padding: 20px 16px 22px; }
     }
   </style>
 </head>
@@ -309,8 +269,8 @@
   </header>
 
   <main class="glass-card">
-
     <div class="flex-top">
+      <!-- MAIN COLUMN -->
       <section class="col-main">
         <h2 class="section-title">Overview</h2>
         <p>
@@ -333,4 +293,84 @@
 
         <h2 class="section-title">Submission Guidelines</h2>
         <p>
-          Manuscripts should follow the <em>Multimedia Tools and Applications</em> submission format and be submitted through the Springer Editorial Manage
+          Manuscripts should follow the <em>Multimedia Tools and Applications</em> submission format and be submitted through the Springer Editorial Manager system under the track:
+          <strong>“Special Issue: AI X Metaverse”</strong>.
+        </p>
+
+        <div class="button-row">
+          <!-- TODO: replace # with actual submission URL when available -->
+          <a class="btn" href="#" target="_blank" rel="noopener">
+            <span class="icon">🚀</span><span>Go to Submission System</span>
+          </a>
+
+          <!-- PDF flyer download button -->
+          <!-- Make sure the PDF filename matches this (see instructions below) -->
+          <a class="btn secondary" href="mtap-ai-metaverse-cfp.pdf" download>
+            <span class="icon">📄</span><span>Download CFP Flyer (PDF)</span>
+          </a>
+        </div>
+
+        <h2 class="section-title">Past Events & Related Activities</h2>
+        <ul>
+          <li>AAAI Summer Symposium 2023</li>
+          <li>SIGGRAPH Asia 2023</li>
+          <li>SIGGRAPH Asia 2024</li>
+          <li>ACM Multimedia 2025</li>
+        </ul>
+      </section>
+
+      <!-- SIDE COLUMN -->
+      <aside class="col-side">
+        <div class="dates-card">
+          <p class="card-title">Important Dates (AoE Time)</p>
+          <div class="dates-grid">
+            <div class="date-item">
+              <span class="date-label">Submission Deadline</span>
+              <span class="date-value">1 March 2026</span>
+            </div>
+            <div class="date-item">
+              <span class="date-label">First Review Notification</span>
+              <span class="date-value">10 April 2026</span>
+            </div>
+            <div class="date-item">
+              <span class="date-label">Revision Submission</span>
+              <span class="date-value">01 May 2026</span>
+            </div>
+            <div class="date-item">
+              <span class="date-label">Final Decision</span>
+              <span class="date-value">June 2026</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="editors-card">
+          <p class="card-title">Guest Editors</p>
+          <ul class="editors-list">
+            <li><strong>[Chair]</strong> Dr. Aik Beng Ng — NVIDIA, Regional Manager, NVAITC</li>
+            <li>Megani Rajendran — NVIDIA, Solutions Architect</li>
+            <li>Assoc. Prof. Jeannie Lee Su Ann — Singapore Institute of Technology</li>
+            <li>Prof. Ian McLoughlin — Singapore Institute of Technology</li>
+            <li>Prof. Cai Yiyu — Nanyang Technological University</li>
+            <li>Dr. Simon See — NVIDIA AI Technology Centre, Global Head</li>
+          </ul>
+        </div>
+
+        <div class="contact-card">
+          <p class="card-title">Contact</p>
+          <ul class="contact-list">
+            <li>For inquiries regarding this special issue, please contact:</li>
+            <li><a class="mail" href="mailto:mrajendran@nvidia.com">mrajendran@nvidia.com</a></li>
+            <li><a class="mail" href="mailto:aikbengn@nvidia.com">aikbengn@nvidia.com</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+
+    <p class="footer-note">
+      © 2025 AI × Metaverse Special Issue — Multimedia Tools and Applications (Springer)
+    </p>
+  </main>
+</div>
+
+</body>
+</html>
