@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Call for Papers – AI X Immersive Multimedia (MTAP Special Issue)</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Call for Papers – AI-Driven Immersive Multimedia (MTAP Special Issue)</title>
   <style>
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -83,9 +83,41 @@
     }
 
     .journal {
-      margin-top: 6px;
+      margin-top: 8px;
       font-size: 0.95rem;
       color: #9ca3af;
+    }
+
+    .actions {
+      margin-top: 14px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(148,163,184,0.4);
+      background: rgba(15,23,42,0.7);
+      color: #e5e7eb;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.12s ease, border-color 0.12s ease, background 0.12s ease;
+      white-space: nowrap;
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      border-color: rgba(56,189,248,0.8);
+      background: rgba(15,23,42,0.85);
+    }
+    .btn.primary {
+      background: rgba(56,189,248,0.18);
+      border-color: rgba(56,189,248,0.55);
     }
 
     .glass-card {
@@ -112,4 +144,165 @@
     .col-side { flex: 1.1; min-width: 240px; }
 
     h2.section-title {
-      f
+      font-size: 1.05rem;
+      margin: 18px 0 8px;
+      color: #e5e7eb;
+      letter-spacing: 0.02em;
+    }
+
+    p { margin: 10px 0; color: #e5e7eb; }
+    ul { margin: 10px 0 0 18px; padding: 0; }
+    li { margin: 6px 0; color: #e5e7eb; }
+    .muted { color: #9ca3af; }
+
+    .info-box {
+      border-radius: 16px;
+      border: 1px solid rgba(148,163,184,0.35);
+      background: rgba(2,6,23,0.25);
+      padding: 14px 14px;
+    }
+
+    .dates {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .date-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(148,163,184,0.25);
+      background: rgba(15,23,42,0.55);
+    }
+    .date-row strong { color: #e5e7eb; }
+    .date-row span { color: #9ca3af; text-align: right; }
+
+    a { color: #38bdf8; }
+    a:hover { color: #7dd3fc; }
+
+    footer {
+      margin-top: 16px;
+      font-size: 0.9rem;
+      color: #9ca3af;
+      text-align: center;
+    }
+    code {
+      background: rgba(15,23,42,0.7);
+      padding: 2px 6px;
+      border-radius: 8px;
+      border: 1px solid rgba(148,163,184,0.25);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <div class="wrapper">
+    <header>
+      <div class="tag">MTAP Special Issue · SI 1264</div>
+      <h1>Call for Papers</h1>
+      <h2 class="subtitle">AI-Driven Immersive Multimedia</h2>
+      <div class="journal">Multimedia Tools and Applications (Springer)</div>
+      <div class="actions">
+        <!-- Full details link (updated) -->
+        <a class="btn primary" href="https://link.springer.com/journal/11042/updates/27838126" target="_blank" rel="noopener noreferrer">
+          Full Special Issue Details
+        </a>
+        <a class="btn" href="https://www.editorialmanager.com/mtap/default.aspx" target="_blank" rel="noopener noreferrer">
+          Submit via Editorial Manager
+        </a>
+      </div>
+    </header>
+
+    <main class="glass-card">
+      <div class="flex-top">
+        <section class="col-main">
+          <h2 class="section-title">Overview</h2>
+          <p>
+            The fusion of Artificial Intelligence (AI) and immersive multimedia is redefining how we experience digital environments.
+            This Special Issue seeks original contributions at the intersection of AI and immersive multimedia, spanning generative systems,
+            multimodal perception and cognitive models, synthetic data, intelligent agents, and human-centered immersive design.
+          </p>
+
+          <h2 class="section-title">Topics of Interest</h2>
+          <p class="muted">Topics include, but are not limited to:</p>
+          <ul>
+            <li><strong>Generative AI for Immersive Environments:</strong> Methods for creating realistic synthetic data, 3D worlds, and interactive digital content.</li>
+            <li><strong>Synthetic Data Generation and Augmentation:</strong> AI-driven approaches for robust model training when real data is scarce or sensitive.</li>
+            <li><strong>Advanced Digital Twins and Real-Time Simulation:</strong> High-fidelity digital replicas for learning, simulation, and adaptive environments.</li>
+            <li><strong>Intelligent Avatars and Virtual Agents:</strong> Design of AI-powered agents that interact naturally in immersive multimedia.</li>
+            <li><strong>Cognitive Modeling and Personalization:</strong> User-adaptive systems, human-centered design, and experiential analysis via behavioural and cognitive modeling.</li>
+            <li><strong>Multimodal Interaction and Sensory Augmentation:</strong> Fusion of visual, auditory, and haptic signals for richer immersion.</li>
+            <li><strong>Ethical, Privacy, and Bias Considerations:</strong> Responsible development of AI-driven immersive ecosystems.</li>
+            <li><strong>Domain-Specific Applications:</strong> Case studies in education, healthcare, engineering, manufacturing, training, and entertainment.</li>
+          </ul>
+
+          <h2 class="section-title">Submission Guidelines</h2>
+          <p>
+            Manuscripts should follow the <em>Multimedia Tools and Applications</em> submission format and be submitted through Springer’s
+            Editorial Manager under the track:
+            <code>SI 1264 - AI-Driven Immersive Multimedia</code>.
+          </p>
+          <p class="muted">
+            Submissions must present original, unpublished work and must not be under review elsewhere at the time of submission.
+            All submissions will undergo rigorous peer review by at least three independent reviewers.
+          </p>
+
+          <p>
+            For complete information, please refer to the official Special Issue page:
+            <a href="https://link.springer.com/journal/11042/updates/27838126" target="_blank" rel="noopener noreferrer">
+              https://link.springer.com/journal/11042/updates/27838126
+            </a>
+          </p>
+        </section>
+
+        <aside class="col-side">
+          <div class="info-box">
+            <h2 class="section-title" style="margin-top: 0;">Important Dates</h2>
+            <div class="dates">
+              <div class="date-row">
+                <strong>Submission Deadline</strong>
+                <span>1 April 2026</span>
+              </div>
+              <div class="date-row">
+                <strong>First Review Notification</strong>
+                <span>May 2026</span>
+              </div>
+              <div class="date-row">
+                <strong>Revision Submission</strong>
+                <span>June 2026</span>
+              </div>
+              <div class="date-row">
+                <strong>Final Decision</strong>
+                <span>June–July 2026</span>
+              </div>
+            </div>
+
+            <h2 class="section-title">How to Submit</h2>
+            <p class="muted" style="margin-top: 0;">
+              Submit via:
+              <a href="https://www.editorialmanager.com/mtap/default.aspx" target="_blank" rel="noopener noreferrer">
+                Editorial Manager
+              </a>
+            </p>
+            <p class="muted" style="margin-top: 0;">
+              Select article type:
+              <code>SI 1264 - AI-Driven Immersive Multimedia</code>
+            </p>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer>
+      Please share this Call for Papers with colleagues and collaborators who may be interested in submitting.
+    </footer>
+  </div>
+</body>
+</html>
